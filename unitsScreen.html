@@ -1,0 +1,65 @@
+<div id="unitsScreen"
+	data-bb-type="screen"
+	data-bb-effect="fade">
+
+	<script src="js/unitsScreen.js"></script>	
+
+	<div id="screenTitle"
+		data-bb-type="title"
+		data-bb-caption="Common Unit Conversions"></div>
+
+		<div data-bb-type="round-panel">
+
+		<div id="txtPanelHeader" data-bb-type="panel-header"></div>
+		<div id: "header" data-bb-type="label">Converstion:</div>
+		<input id="txtEquation" type="text" placeholder = "Kg <--> Lb" title="mass" disabled></input>
+
+		<div data-bb-type="label-control-container">
+
+			<div data-bb-type="row">
+				<div id="txtResultTitle" data-bb-type="label">Result</div>
+				<input id="txtResult" type="text" placeholder= "Put 'A' in the variable you want to solve for" disabled/>
+			</div>
+			<div data-bb-type="row">
+				<div id="lblMetric" data-bb-type="label">SI Metric Units</div>
+				<input id="checkMetric" type="checkbox" checked="false" onchange=""/>
+			</div>
+			<div data-bb-type="row">
+				<div id="lblMetric1" data-bb-type="label"></div>
+				<input id="txtVar" type="number" placeholder="SI Metric Units" enabled/>				
+			</div>
+			
+			<div data-bb-type="row">
+				<div id="txtVar1Title" data-bb-type="label">British Imperial Units</div>
+				<input id="txtVar1" type="number" placeholder="British Imperial Units" enabled/>
+				
+			</div>
+			
+		</div>
+	</div>
+
+	<div data-bb-type="action-bar">
+		<div id="btnCalculate"
+			data-bb-type="action"
+			data-bb-style="button"
+			data-bb-selected="true"
+			data-bb-img="assets/icons/gps.png">
+			Calculate
+		</div>
+
+		<div id="btnEquationList"
+			data-bb-type="action"
+			data-bb-style="button"
+			data-bb-img="assets/icons/home.png">
+			Conversion List
+		</div>
+	</div>
+
+	<div id="contextMenu" data-bb-type="context-menu">
+		<div id="btnMass" data-bb-type="action" data-bb-img="assets/icons/delete.png">Mass</div>
+		<div id="btnLength" data-bb-type="action" data-bb-img="assets/icons/list.png">Length</div>
+		<div id="btnVolume" data-bb-type="action" data-bb-img="assets/icons/list.png">Volume</div>
+		<div id="btnVel" data-bb-type="action" data-bb-img="assets/icons/list.png">Velocity</div>
+			
+	</div>
+</div>

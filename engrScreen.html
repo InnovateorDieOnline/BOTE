@@ -1,0 +1,71 @@
+<div id="engrScreen"
+	data-bb-type="screen"
+	data-bb-effect="fade">
+
+	<script src="js/engrScreen.js"></script>	
+
+	<div id="screenTitle"
+		data-bb-type="title"
+		data-bb-caption="Common Engineering Equations"></div>
+
+		<div data-bb-type="round-panel">
+
+		<div id="txtPanelHeader" data-bb-type="panel-header"></div>
+		<div id: "header" data-bb-type="label">Eq:</div>
+		<select id="visibility" data-bb-label="Visibility:">
+						<option value="F" selected="true">F</option>
+						<option value="M">M</option>
+					</select>
+
+		<div data-bb-type="label-control-container">
+
+			<div data-bb-type="row">
+				<div id="lblResult" data-bb-type="label">Result</div>
+				<input id="txtResult" type="text" placeholder= "Put 'x' in the variable you want to solve for" disabled/>
+			</div>
+			<div data-bb-type="row">
+				<div id="lblVar" data-bb-type="label">F</div>
+				<input id="txtVar" type="number" placeholder="Force" enabled/>
+			</div>
+			<div data-bb-type="row">
+				<div id="lblVar1" data-bb-type="label">Variable 1</div>
+				<input id="txtVar1" type="number" placeholder="mass" enabled/>
+			</div>
+
+			<div data-bb-type="row">
+				<div id="lblVar2" data-bb-type="label">Variable 2</div>
+				<input id="txtVar2" type="number" placeholder="acceleration" enabled/>
+			</div>
+			<div data-bb-type="row">
+				<div id="lblVar3" data-bb-type="label">Variable 3</div>
+				<input id="txtVar3" type="number" placeholder="Not Used" enabled/>
+			</div>
+			<div data-bb-type="row">
+				<div id="lblVar4" data-bb-type="label">Variable 4</div>
+				<input id="txtVar4" type="number" placeholder="Not Used" enabled/>
+			</div>
+		</div>
+	</div>
+
+	<div data-bb-type="action-bar">
+		<div id="btnCalculate"
+			data-bb-type="action"
+			data-bb-style="button"
+			data-bb-selected="true"
+			data-bb-img="assets/icons/gps.png">
+			Calculate
+		</div>
+
+		<div id="btnEquationList"
+			data-bb-type="action"
+			data-bb-style="button"
+			data-bb-img="assets/icons/home.png">
+			Equation List
+		</div>
+	</div>
+
+	<div id="contextMenu" data-bb-type="context-menu">
+		<div id="btnMech" data-bb-type="action" data-bb-img="assets/icons/delete.png">Mechanics</div>
+		<div id="btnEM" data-bb-type="action" data-bb-img="assets/icons/list.png">Electromagnetics</div>		
+	</div>
+</div>

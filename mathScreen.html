@@ -1,0 +1,64 @@
+<div id="mathScreen"
+	data-bb-type="screen"
+	data-bb-effect="fade">
+
+	<script src="js/mathScreen.js"></script>	
+
+	<div id="screenTitle"
+		data-bb-type="title"
+		data-bb-caption="Common Math Equations"></div>
+
+		<div data-bb-type="round-panel">
+
+		<div id="txtPanelHeader" data-bb-type="panel-header"></div>
+		<div id: "header" data-bb-type="label">Eq:</div>
+		<input id="txtEquation" type="text" placeholder = "ax^2+bx+c" title="quad" disabled></input>
+
+		<div data-bb-type="label-control-container">
+
+			<div data-bb-type="row">
+				<div id="lblResult" data-bb-type="label">Result</div>
+				<input id="txtResult" type="text" placeholder= "Result" disabled/>
+			</div>
+			<div data-bb-type="row">
+				<div id="lblVar" data-bb-type="label">X</div>
+				<input id="txtVar" type="number" placeholder="X" enabled/>
+			</div>
+			<div data-bb-type="row">
+				<div id="lblVar1" data-bb-type="label">A</div>
+				<input id="txtVar1" type="number" placeholder="A" enabled/>
+			</div>
+
+			<div data-bb-type="row">
+				<div id="lblVar2" data-bb-type="label">B</div>
+				<input id="txtVar2" type="number" placeholder="B" enabled/>
+			</div>
+			<div id="rowVar3" data-bb-type="row">
+				<div id="lblVar3" data-bb-type="label">C</div>
+				<input id="txtVar3" type="number" placeholder="C" enabled/>
+			</div>			
+		</div>
+	</div>
+
+	<div data-bb-type="action-bar">
+		<div id="btnCalculate"
+			data-bb-type="action"
+			data-bb-style="button"
+			data-bb-selected="true"
+			data-bb-img="assets/icons/gps.png">
+			Calculate
+		</div>
+
+		<div id="btnEquationList"
+			data-bb-type="action"
+			data-bb-style="button"
+			data-bb-img="assets/icons/home.png">
+			Equation List
+		</div>
+	</div>
+
+	<div id="contextMenu" data-bb-type="context-menu">
+		<div id="btnQuad" data-bb-type="action" data-bb-img="assets/icons/delete.png">Quadratic</div>
+		<div id="btnCubic" data-bb-type="action" data-bb-img="assets/icons/list.png">Cubic</div>		
+	</div>
+</div>
