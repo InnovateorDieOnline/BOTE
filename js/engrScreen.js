@@ -5,7 +5,6 @@ app.engrScreen = function () {
 	var pub = {},
 		initUI;
 		
-
 	pub.onDOMReady = function () {
 		console.log('in app.engrScreen.onDOMReady');
 		var context = document.getElementById('contextMenu');
@@ -19,171 +18,186 @@ app.engrScreen = function () {
 		console.log('in app.mathScreen.addEventListeners');
 		var context = document.getElementById('contextMenu');
 
-		document.getElementById('btnCalculate').addEventListener('click', pub.calculate);
-		document.getElementById('btnEquationList').addEventListener('click', pub.eqList);
-		document.getElementById('btnEM').addEventListener('click', pub.switchEMEq);
-		document.getElementById('btnMech').addEventListener('click', pub.switchMechEq);
+		$('#btnCalculate').bind('click', pub.calculate);
+		$('#btnEquationList').bind('click', pub.eqList);
+		$('#btnEM').bind('click', pub.switchEMEq);
+		$('#btnMech').bind('click', pub.switchMechEq);
 	};
 
 	initUI = function () {
-		console.log('you have entered the initUI function');
-		
+		console.log('you have entered the initUI function');		
 	};
-	pub.calculate = function (){
-		var f1 = document.getElementById('txtVar').value;
-		var f = Number(f1);
-		var m1 = document.getElementById('txtVar1').value;
-		var m = Number(m1);
-		var a1 = document.getElementById('txtVar2').value;
-		var a = Number(a1);		
+	
+	pub.setAndForget = function(var0, varString) {		
+	    var lblString = $('#lbl'+varString);
+		var txtString = $('#txt'+varString);
 		
-		var eq = document.getElementById('txtEquation').title;
+		lblString.html(var0);
+		txtString.attr('placeholder', var0);
 		
-		if( eq == 'mech') {		
-		console.log (' you will got to pub.calcMechForce shortly');
-		pub.calcMechForce();
-		} else if( eq == 'em') {		
-		console.log('you will go to pub.calcEMForce shortly');
-		pub.calcEMForce();
+		if(typeof var0 === "undefined")
+		{			
+			lblString.hide();
+			txtString.hide();
 		}
+		else
+		{			
+			lblString.show();
+			txtString.show();
+		}
+	}
+	
+	pub.switchEq = function (eqString, var1, var2, var3, var4) {
+	    $('#txtResult').attr('title', eqString);
+		$('#txtResult').attr('placeholder', eqString);
 		
-	}	
-	pub.switchEMEq = function () {
-		console.log('You have choosen an EM Equation');
-		$('#txtEquation').attr('value', 'F=q(E+v*B)');
-		$('#txtEquation').attr('title', 'em');
-		$('#txtResult').attr('placeholder', 'Put "x" in the field you want to solve for');	
-		$('#txtVar').attr('placeholder', 'F');
-		
-		$('#lblVar1').html('q');
-		$('#txtVar1').attr('placeholder', 'q');
-		
-		$('#lblVar2').html('E');
-		$('#txtVar2').attr('placeholder', 'E');
-		
-		$('#lblVar3').html('v');
-		$('#txtVar3').attr('placeholder', 'v');
-		$('#lblVar3').show();
-		$('#txtVar3').show();
-		
-		$('#lblVar4').html('B');
-		$('#txtVar4').attr('placeholder', 'B');
-		$('#lblVar4').show();
-		$('#txtVar4').show();
+		$('#lblVar').html('F');
+		$('#txtVar').attr('placeholder', 'F');		
+			
+		pub.setAndForget(var1, 'Var1');
+		pub.setAndForget(var2, 'Var2');	
+		pub.setAndForget(var3, 'Var3');		
+		pub.setAndForget(var4, 'Var4');		
 	}
 	
 	pub.switchMechEq = function () {
 		console.log('You have choosen a Quadratic Equation');
-		$('#txtEquation').attr('value', 'F=ma');
-		$('#txtEquation').attr('title', 'mech');
-		$('#txtResult').attr('placeholder', 'Put "x" in the field you want to solve for');
-		$('#txtVar').attr('placeholder', 'F');
-		
-		$('#lblVar1').html('m');
-		$('#txtVar1').attr('placeholder', 'm');
-		
-		$('#lblVar2').html('a');
-		$('#txtVar2').attr('placeholder', 'a');
-		
-		$('#lblVar3').html('');
-		$('#txtVar3').attr('placeholder', 'Not used');
-		$('#lblVar3').hide();
-		$('#txtVar3').hide();
-		
-		$('#lblVar4').html('');
-		$('#txtVar4').attr('placeholder' , 'Not used');
-		$('#lblVar4').hide();
-		$('#txtVar4').hide();
+		pub.switchEq(
+		  'F=ma',
+		  'm',
+		  'a'
+		  );		
 	}
 	
+	pub.switchEMEq = function () {
+		console.log('You have choosen an EM Equation');
+		pub.switchEq(
+		  'F=q(E+v*B)',
+		  'q',
+		  'E',
+		  'v',
+		  'B'
+		  );		
+	}
+		
 	pub.eqList = function () {
 		console.log('You have choosen the list of equations');
-		var context = document.getElementById('contextMenu');
-		context.menu.show();
-		
+		document.getElementById('contextMenu').menu.show();				
+	}
+	
+	pub.calculate = function () {
+		var eq = $('#txtResult').attr('title');
+		console.log('eq is ' +eq);
+		 if( eq == 'F=ma') {
+			console.log (' you will got to pub.calcMechForce shortly');
+			pub.calcMechForce();
+		} else if( eq == 'F=q(E+v*B)') {		
+			console.log('you will go to pub.calcEMForce shortly');
+			pub.calcEMForce();
+		}	
+	}
+	
+	pub.countEmptyFields  = function () {
+	    //count the number of blank arguments
+		var count  = 0;
+		for (var i = 0; i < arguments.length; i++) {
+			if (arguments[i] == '') {
+				count++;
+			}
+		}
+		return count;
 	}
 	
 	pub.calcMechForce = function () {
-		console.log('You are calculting force');
-		var force = document.getElementById('txtVar').value;
+		var force = $('#txtVar').attr('value');
 		var f = Number(force);
-		var mass = document.getElementById('txtVar1').value;
+		var mass = $('#txtVar1').attr('value');
 		var m = Number(mass);
-		var accel = document.getElementById('txtVar2').value;
-		var a = Number(accel);		
+		var accel = $('#txtVar2').attr('value');
+		var a = Number(accel);
+		var numberOfBlanks = pub.countEmptyFields(
+			force,
+			mass,
+			accel
+			);
 		var answer;
-		if (force == 'x'){		
-		answer = m*a
-		$('#txtResult').attr('value', answer);
-		console.log(answer);
-		} else if( mass == 'x') {
-		 console.log('You are calculting mass');
-		 answer = f / a;
-		 $('#txtResult').attr('value', answer);
-		} else if ( accel == 'x') {
-		console.log('You are calculting acceleration');
-		answer = f / m;
-		$('#txtResult').attr('value', answer);
+		
+		if (numberOfBlanks != 1) {
+			answer = 'Please leave only ONE input field blank';
+		} else if (force == ''){		
+			console.log('You are calculating Force');
+			answer = m*a;			
+		} else if( mass == '') {
+			console.log('You are calculting mass');
+			answer = f / a;		 
+		} else if ( accel == '') {
+			console.log('You are calculting acceleration');
+			answer = f / m;		
 		} else {
-		console.log ('There has been an input error');
+			console.log ('Something went wrong, you should not see this');
 		}
+		
+		$('#txtResult').attr('value', answer);
 	}
 	
-	pub.calcEMForce = function () {
-		
-		var force = document.getElementById('txtVar').value;
-		var F = Number(force);
-		var charge = document.getElementById('txtVar1').value;
-		var q = Number(charge);
-		var eField = document.getElementById('txtVar2').value;
-		var E = Number(eField);
-		var velocity = document.getElementById('txtVar3').value;
+	pub.calcEMForce = function () {		
+		var force = $('#txtVar').attr('value');
+        var F = Number(force);		
+		var charge = $('#txtVar1').attr('value');
+		var q = Number(charge);	
+		var eField = $('#txtVar2').attr('value');
+		var E = Number(eField);	
+		var velocity = $('#txtVar3').attr('value');
 		var v = Number(velocity);
-		var bField = document.getElementById('txtVar4').value;
+		var bField = $('#txtVar4').attr('value');
 		var B = Number(bField);
+		var numberOfBlanks = pub.countEmptyFields(
+			force,
+			charge,
+			eField,
+			velocity,
+			bField
+			);		
 		var answer;
-		if (force == 'x'){		
-		console.log('You are calculting force');
-		answer = q*(E+(q*B));
-		$('#txtResult').attr('value', answer);
-		console.log(answer);
-		} else if( charge == 'x') {
-		 console.log('You are calculting charge');
-		 answer = F / (E + (v*B));
-		 $('#txtResult').attr('value', answer);
-		} else if ( eField == 'x') {
-		console.log('You are calculting the Electric Field');
-		answer = (F/q) - (v*B);
-		$('#txtResult').attr('value', answer);
-		} else if (velocity == 'x') {
+		
+		if (numberOfBlanks != 1) {
+			answer = 'Please leave only ONE input field blank';
+		} else if (force == '') {		
+			console.log('You are calculting force');
+			answer = q*(E+(q*B));			
+		} else if( charge == '') {
+			console.log('You are calculting charge');
+			answer = F / (E + (v*B));
+		} else if ( eField == '') {
+			console.log('You are calculting the Electric Field');
+			answer = (F/q) - (v*B);
+		} else if (velocity == '') {
 			console.log('You are calculting the velcotiy of the particle');
 			answer = ((F/q) - E)/ B;
-			$('#txtResult').attr('value', answer);
-		} else if (bField == 'x') {
+		} else if (bField == '') {
 			console.log('You are calculting the magnetic field');
 			answer = ((F/q) - E)/ v;
-			$('#txtResult').attr('value', answer);
 		} else {
-		console.log ('There has been an input error');
+			answer = 'Something went wrong, you should not see this';			
 		}
+		
+		$('#txtResult').attr('value', answer);
+		console.log(answer);
 	}
+	
 	return pub;
 }();
+
 function hammerTime() {
-  var contentSwipe = new Hammer(document.getElementById("engrScreen"), {
-  });
+  var contentSwipe = new Hammer(document.getElementById("engrScreen"), {});
 
   contentSwipe.onswipe = function(ev) { 
     var dir = ev.direction;
-    
-    // swipe from right-to-left
     if (dir === 'left') {
-      
-
-      // swipe from left-to-right
-    }  else if (dir === 'right') {
-        bb.pushScreen('splash.html', 'splashScreen');
-      }
-
+		// swipe from right-to-left
+    } else if (dir === 'right') {
+		// swipe from left-to-right
+		bb.pushScreen('splash.html', 'splashScreen');
+	}
   };
 }
