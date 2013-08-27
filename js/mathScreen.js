@@ -30,81 +30,114 @@ app.mathScreen = function () {
 		//$('#txtResult').attr('value', 'ax^2+bx+c');
 		
 	};
-	pub.calculate = function (){
-		var a1 = document.getElementById('txtVar1').value;
+	
+	pub.setAndForget = function(var0, varString) {		
+	    var lblString = $('#lbl'+varString);
+		var txtString = $('#txt'+varString);
+		
+		lblString.html(var0);
+		txtString.attr('placeholder', var0);
+		
+		if(typeof var0 === "undefined")
+		{			
+			lblString.hide();
+			txtString.hide();
+		}
+		else
+		{			
+			lblString.show();
+			txtString.show();
+		}
+	}
+	
+	pub.switchEq = function (eqString, var0, var1, var2, var3, var4) {
+	    $('#txtEquation').attr('value', eqString);
+	    $('#txtResult').attr('title', eqString);
+		$('#txtResult').attr('value', eqString);				
+		
+		pub.setAndForget(var0, 'Var');	
+		pub.setAndForget(var1, 'Var1');
+		pub.setAndForget(var2, 'Var2');	
+		pub.setAndForget(var3, 'Var3');		
+		pub.setAndForget(var4, 'Var4');		
+	}
+	
+	pub.calcQuad = function (){
+		var a1 = $('#txtVar1').attr('value');
 		var a = Number(a1);
-		var b1 = document.getElementById('txtVar2').value;
+		var b1 = $('#txtVar2').attr('value');
 		var b = Number(b1);
-		var c1 = document.getElementById('txtVar3').value;
+		var c1 = $('#txtVar3').attr('value');
 		var c = Number(c1);		
-		var x1 = document.getElementById('txtVar').value;
+		var x1 = $('#txtVar').attr('value');
 		var x = Number(x1);
 		
-		var eq = document.getElementById('txtEquation').title;
+		var eq = document.getElementById('txtEquation').title;		
 		
-		if( eq == 'quad') {
 		var answer1 = (-b + Math.sqrt(b*b-(4*a*c))) / (2*a);
-		var answer2 = (-b - Math.sqrt(b*b-(4*a*c))) / (2*a);		
-			if ( isNaN(answer1)){
-				$('#txtResult').attr('value', 'sorry the result is non-real');
-			} else {
-			$('#txtResult').attr('value', answer1 +'  &  ' + answer2);
-			}
-		} else if (eq =='cubic') {
-			var answer = a*(x*x*x)+b*(x*x)+c*x;
-			$('#txtResult').attr('value', answer);
+		var answer2 = (-b - Math.sqrt(b*b-(4*a*c))) / (2*a);
+		
+		if ( isNaN(answer1)){
+			$('#txtResult').attr('value', 'sorry the result is non-real');
+		} else {
+		$('#txtResult').attr('value', 'x= ' + answer1 +'  &  ' + answer2);
 		}
+	}
+	pub.calcCubic = function () {
+		
+		var x1 = $('#txtVar').attr('value');
+		var x = Number(x1);
+		var a1 = $('#txtVar1').attr('value');
+		var a = Number(a1);
+		var b1 = $('#txtVar2').attr('value');
+		var b = Number(b1);
+		var c1 = $('#txtVar3').attr('value');
+		var c = Number(c1);		
+		
+		console.log('x = ' + x + ' a = ' + a);
+		var answer = a*(x*x*x)+b*(x*x)+c*x;
+		$('#txtResult').attr('value', 'd = ' + answer);
+		
 	}	
 	pub.switchCubEq = function () {
 		console.log('You have choosen a Cubic Equation');
-		$('#txtEquation').attr('value', 'ax^3+bx^2+cx+d');
-		$('#txtEquation').attr('title', 'cubic');
 		
-		$('#lblResult').html('Resulting Product = ');
-		$('#txtResult').attr('value', 'Resultant Product = ');
-		
-		$('#lblVar').show();
-		$('#lblVar').html('X');
-		$('#txtVar').show();
-		$('#txtVar').attr('placeholder', 'X');
-		
-		$('#lblVar1').html('A');
-		$('#txtVar1').attr('placeholder', 'A');
-		
-		$('#lblVar2').html('B');
-		$('#txtVar2').attr('placeholder', 'B');
-		
-		$('#lblVar3').html('C');
-		$('#txtVar3').attr('placeholder', 'B');
-		
-		
+		pub.switchEq(
+		  'ax^3+bx^2+cx = d',
+		  'x',
+		  'a',
+		  'b',
+		  'c'
+		);
 	}
 	
 	pub.switchQuadEq = function () {
-		console.log('You have choosen a Quadratic Equation');
-		$('#txtEquation').attr('value', 'ax^2+bx+c');
-		$('#txtEquation').attr('title', 'quad');
-		
-		$('#lblResult').html('X = ')
-		$('#txtResult').attr('value' , 'X = ');
-		
-		$('#txtVar').hide();
-		$('#lblVar').hide();
-		
-		$('#txtVar1').attr('placeholder', 'A');
-		
-		$('#txtVar2').attr('placeholder', 'B');
-		
-		$('#txtVar3').attr('placeholder', 'C');		
-		
-		
+		console.log('You have choosen a Quadratic Equation');	
+
+		pub.switchEq(
+		  'ax^2+bx+c = 0',
+		  'a',
+		  'b',
+		  'c'
+		  );		
 	}
 	
 	pub.eqList = function () {
 		console.log('You have choosen the list of equations');
 		var context = document.getElementById('contextMenu');
-		context.menu.show();
-		
+		context.menu.show();		
+	}
+	
+	pub.calculate = function () {
+		var eq = $('#txtResult').attr('title');
+		console.log('eq is ' +eq);
+		 if( eq == 'ax^2+bx+c = 0') {
+			console.log (' you will got to pub.calcQuad shortly');
+			pub.calcQuad();
+		} else if( eq == 'ax^3+bx^2+cx = d') {		
+			console.log('you will go to pub.calcCubic shortly');
+			pub.calcCubic();
+		}	
 	}
 	
 
