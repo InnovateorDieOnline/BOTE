@@ -57,43 +57,91 @@ app.unitsScreen = function () {
 		}
 		
 	}	
+	
+	pub.switchEq = function (eqString, dimension, var1, var2, var3, var4) {
+	    $('#txtResult').attr('title', eqString);
+		$('#txtResult').attr('placeholder', eqString);
+		
+		$('#txtEquation').attr('value', eqString);
+		$('#txtEquation').attr('title', dimension);
+		$('#txtResult').attr('placeholder', 'Leave Blank the field you want to solve for');
+		
+		$('lblMetric').attr('value' , var1);
+		$('lblBritish').attr('value' , var2);
+		
+		
+		$('#txtSI').attr('placeholder', var1);
+		$('#txtBritish').attr('placeholder', var2);		
+	}
+	
 	pub.switchMass = function () {
 		console.log('You have choosen a Mass conversion');
-		$('#txtEquation').attr('value', 'Kg <--> Lb');
+		
+		/*$('#txtEquation').attr('value', 'Kg <--> Lb');
 		$('#txtEquation').attr('title', 'mass');
 		$('#txtResult').attr('placeholder', 'Put "A" in the field you want to solve for');	
 		$('#txtVar').attr('placeholder', 'Kilogram [kg]');
-		$('#txtVar1').attr('placeholder', 'Pound [lb]');
+		$('#txtVar1').attr('placeholder', 'Pound [lb]'); */
 		
+		pub.switchEq(
+					'Kg <--> Lb',	
+					'mass',
+					'Kilogram [kg]',
+					'Pound [lb]'
+					);
 	}
 	
 	pub.switchLength = function () {
 		console.log('You have choosen a Length conversion');
-		$('#txtEquation').attr('value', 'KM <--> MI');
+		
+		/*$('#txtEquation').attr('value', 'KM <--> MI');
 		$('#txtEquation').attr('title', 'length');	
 		$('#txtResult').attr('placeholder', 'Put "A" in the field you want to solve for');	
 		$('#txtVar').attr('placeholder', 'Kilometer [KM]');
-		$('#txtVar1').attr('placeholder', 'Mile [Mi]');
+		$('#txtVar1').attr('placeholder', 'Mile [Mi]'); */
+		
+		pub.switchEq(
+					'KM <--> MI',	
+					'length',
+					'Kilometer [KM]',
+					'Mile [Mi]'
+					);
 		
 	}
 	
 	pub.switchVolume = function () {
 		console.log('You have choosen a volume conversion');
-		$('#txtEquation').attr('value', 'L <--> G');
+		
+		/*$('#txtEquation').attr('value', 'L <--> G');
 		$('#txtEquation').attr('title', 'volume');	
 		$('#txtResult').attr('placeholder', 'Put "A" in the field you want to solve for');	
 		$('#txtVar').attr('placeholder', 'Liter [L]');
-		$('#txtVar1').attr('placeholder', 'Gallon [G]');
+		$('#txtVar1').attr('placeholder', 'Gallon [G]'); */
+		
+		pub.switchEq(
+					'L <--> G',	
+					'volume',
+					'Liter [L]',
+					'Gallon [G]'
+					);
 		
 	}
 	
 	pub.switchVelocity = function () {
 		console.log('You have choosen a velocity conversion');
-		$('#txtEquation').attr('value', 'KM/hr <--> MPH');
+		
+		/*$('#txtEquation').attr('value', 'KM/hr <--> MPH');
 		$('#txtEquation').attr('title', 'velocity');
 		$('#txtResult').attr('placeholder', 'Put "A" in the field you want to solve for');		
 		$('#txtVar').attr('placeholder', 'Kilometers per hour [KM/hr]');
-		$('#txtVar1').attr('placeholder', 'Miles per hour [Mi/hr]');
+		$('#txtVar1').attr('placeholder', 'Miles per hour [Mi/hr]');*/
+		
+		pub.switchEq(
+					'KM/hr <--> MPH',	
+					'velocity',
+					'Kilometers per hour [KM/hr]',
+					'Miles per hour [Mi/hr]'
+					);
 		
 	}
 	
