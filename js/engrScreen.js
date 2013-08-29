@@ -2,15 +2,13 @@ app.engrScreen = function () {
 
 	'use strict';
 
-	var pub = {},
-		initUI;
+	var pub = {};
 		
 	pub.onDOMReady = function () {
 		console.log('in app.engrScreen.onDOMReady');
 		var context = document.getElementById('contextMenu');
 		context.menu.show();
 		pub.addEventListeners();
-		initUI();
 		hammerTime();	
 	};
 
@@ -22,10 +20,6 @@ app.engrScreen = function () {
 		$('#btnEquationList').bind('click', pub.eqList);
 		$('#btnEM').bind('click', pub.switchEMEq);
 		$('#btnMech').bind('click', pub.switchMechEq);
-	};
-
-	initUI = function () {
-		console.log('you have entered the initUI function');		
 	};
 	
 	pub.setAndForget = function(var0, varString) {		
@@ -82,7 +76,7 @@ app.engrScreen = function () {
 		
 	pub.eqList = function () {
 		console.log('You have choosen the list of equations');
-		document.getElementById('contextMenu').menu.show();				
+		document.getElementById('contextMenu').menu.show();		
 	}
 	
 	pub.calculate = function () {
