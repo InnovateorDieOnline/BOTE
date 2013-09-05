@@ -30,6 +30,10 @@
 	text-shadow: 4px 4px 4px #000066;
 }
 
+#mainTitle img{
+width: 100%; 
+height: 100%; 
+
 #subTitle {
 	position: fixed;
 	font-family: 'Philosopher', sans-serif;

@@ -36,7 +36,8 @@ app.unitsScreen = function () {
 		var b1 = $('#txtVar1').attr('value');
 		var b = Number(b1);		
 		
-		var eq = $('txtEquation').attr('title');
+		var eq = $('#txtEquation').attr('title');
+		console.log(eq);
 		
 		if( eq == 'mass') {		
 			console.log (' you will got to pub.calcMass shortly');			
@@ -62,13 +63,13 @@ app.unitsScreen = function () {
 		
 		$('#txtEquation').attr('value', eqString);
 		$('#txtEquation').attr('title', dimension);
+		
 		$('#txtResult').attr('placeholder', 'Leave Blank the field you want to solve for');
 		
-		$('lblMetric').attr('value' , var1);
-		$('lblBritish').attr('value' , var2);
-		
-		
+		$('#lblMetric').html(var1);
 		$('#txtSI').attr('placeholder', var1);
+		
+		$('#lblBritish').html(var2);
 		$('#txtBritish').attr('placeholder', var2);		
 	}
 	
@@ -126,18 +127,18 @@ app.unitsScreen = function () {
 	pub.calcMass = function () {
 		console.log('You are calculting mass');
 		
-		var metric = $('#txtVar').attr('value');
+		var metric = $('#txtSI').attr('value');
 		var m = Number(metric);
-		var british = $('#txtVar1').attr('value');
+		var british = $('#txtBritish').attr('value');
 		var b = Number(british);
 				
-		var answer;
+		var answer;		
 		
-		if (metric == 'A'){		
+		if (metric == ''){		
 			answer = b*0.45359;
 			$('#txtResult').attr('value', answer +' [kg]');
 			console.log(answer);
-		} else if( british == 'A') {		 
+		} else if( british == '') {		 
 			 answer = m*2.2046;
 			 $('#txtResult').attr('value', answer + ' [lb]');
 		} else {
@@ -148,18 +149,19 @@ app.unitsScreen = function () {
 	pub.calcLength = function () {
 		console.log('You are calculting length');
 		
-		var metric = $('#txtVar').attr('value');
+		var metric = $('#txtSI').attr('value');
 		var m = Number(metric);
-		var british = $('#txtVar1').attr('value');
+		var british = $('#txtBritish').attr('value');
 		var b = Number(british);
 				
 		var answer;
+		var units;
 		
-		if (metric == 'A'){		
+		if (metric == ''){		
 			answer = b*1.60934;
 			$('#txtResult').attr('value', answer +' [KM]');
 			console.log(answer);
-		} else if( british == 'A') {		 
+		} else if( british == '') {		 
 			 answer = m*0.621371
 			 $('#txtResult').attr('value', answer + ' [Mi]');
 		} else {
@@ -170,18 +172,22 @@ app.unitsScreen = function () {
 	pub.calcVolume = function () {
 		console.log('You are calculting volume');
 		
-		var metric = $('#txtVar').attr('value');
-		var m = Number(metric);
-		var british = $('#txtVar1').attr('value');
-		var b = Number(british);
+		var metric = $('#txtSI').attr('value');
+		var m = metric;
+		var british = $('#txtBritish').attr('value');
+		var b = british;
 				
 		var answer;
+		console.log(metric);
+		console.log(british);
+		console.log('m is ' + m);
+		console.log('b is ' +b);
 		
-		if (metric == 'A'){		
+		if (metric == ''){		
 			answer = b*3.78541;
 			$('#txtResult').attr('value', answer +' [L]');
 			console.log(answer);
-		} else if( british == 'A') {		 
+		} else if( british == '') {		 
 			answer = m*0.264172
 			$('#txtResult').attr('value', answer + ' [G]');
 		} else {
@@ -190,20 +196,20 @@ app.unitsScreen = function () {
 	}
 	
 	pub.calcVelocity = function () {
-		console.log('You are calculting volume');
+		console.log('You are calculting velocity');
 		
-		var metric = $('txtVar').attr('value');
+		var metric = $('#txtSI').attr('value');
 		var m = Number(metric);
-		var british = $('#txtVar1').attr('value');
+		var british = $('#txtBritish').attr('value');
 		var b = Number(british);
 				
 		var answer;
 		
-		if (metric == 'A'){		
+		if (metric == ''){		
 			answer = b*1.60934;
 			$('#txtResult').attr('value', answer +' [KM/hr]');
 			console.log(answer);
-		} else if( british == 'A') {		 
+		} else if( british == '') {		 
 			 answer = m*0.621371
 			 $('#txtResult').attr('value', answer + ' [Mi/hr]');
 		} else {

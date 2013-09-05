@@ -66,7 +66,7 @@ app.engrScreen = function () {
 	pub.switchEMEq = function () {
 		console.log('You have choosen an EM Equation');
 		pub.switchEq(
-		  'F=q(E+v*B)',
+		  'F=q x (E + v x B)',
 		  'q',
 		  'E',
 		  'v',
