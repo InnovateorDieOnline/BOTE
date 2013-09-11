@@ -28,6 +28,7 @@ app.engrScreen = function () {
 		
 		lblString.html(var0);
 		txtString.attr('placeholder', var0);
+		txtString.removeAttr('value');
 		
 		if(typeof var0 === "undefined")
 		{			
@@ -85,7 +86,7 @@ app.engrScreen = function () {
 		 if( eq == 'F=ma') {
 			console.log (' you will got to pub.calcMechForce shortly');
 			pub.calcMechForce();
-		} else if( eq == 'F=q(E+v*B)') {		
+		} else if( eq == 'F=q x (E + v x B)') {		
 			console.log('you will go to pub.calcEMForce shortly');
 			pub.calcEMForce();
 		}	

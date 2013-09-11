@@ -2,8 +2,8 @@
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:rim="http://www.blackberry.com/ns/widgets"
         version="1.0.0.5" id="backoftheenvelope" xml:lang="en">
-  <author href="http://www.example.com/"
-          rim:copyright="Copyright 1998-2012 My Corp">IFF Capital</author>
+  <author href="coursera.org/course/cic"
+          rim:copyright="Copyright 2013 IFF Labs">IFF Labs</author>
   <name>Back of the Envelope</name>
   <content src="index.html"/>
   <feature id="blackberry.identity" required="true" version="1.0.0.0"/>

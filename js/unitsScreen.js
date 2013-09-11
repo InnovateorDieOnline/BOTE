@@ -68,9 +68,11 @@ app.unitsScreen = function () {
 		
 		$('#lblMetric').html(var1);
 		$('#txtSI').attr('placeholder', var1);
+		$('#txtSI').removeAttr('value');		
 		
 		$('#lblBritish').html(var2);
-		$('#txtBritish').attr('placeholder', var2);		
+		$('#txtBritish').attr('placeholder', var2);	
+		$('#txtBritish').removeAttr('value');
 	}
 	
 	pub.switchMass = function () {
@@ -143,6 +145,8 @@ app.unitsScreen = function () {
 			 $('#txtResult').attr('value', answer + ' [lb]');
 		} else {
 			console.log ('There has been an input error');
+			answer = 'Please leave only ONE input field blank';
+			$('#txtResult').attr('value', answer);
 		}
 	}
 	
@@ -166,6 +170,8 @@ app.unitsScreen = function () {
 			 $('#txtResult').attr('value', answer + ' [Mi]');
 		} else {
 			console.log ('There has been an input error');
+			answer = 'Please leave only ONE input field blank';
+			$('#txtResult').attr('value', answer);
 		}
 	}
 	
@@ -192,6 +198,8 @@ app.unitsScreen = function () {
 			$('#txtResult').attr('value', answer + ' [G]');
 		} else {
 			console.log ('There has been an input error');
+			answer = 'Please leave only ONE input field blank';
+			$('#txtResult').attr('value', answer);
 		}
 	}
 	
@@ -214,6 +222,8 @@ app.unitsScreen = function () {
 			 $('#txtResult').attr('value', answer + ' [Mi/hr]');
 		} else {
 			console.log ('There has been an input error');
+			answer = 'Please leave only ONE input field blank';
+			$('#txtResult').attr('value', answer);
 		}
 	}
 

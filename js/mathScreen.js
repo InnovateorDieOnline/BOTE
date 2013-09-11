@@ -22,7 +22,7 @@ app.mathScreen = function () {
 
 		$('#btnCalculate').bind('click', pub.calculate);
 		$('#btnEquationList').bind('click', pub.eqList);
-		$('#btnCubic').bind('click', pub.SwitchCubEq);
+		$('#btnCubic').bind('click', pub.switchCubEq);
 		$('#btnQuad').bind('click', pub.switchQuadEq);
 	};	
 	
@@ -32,6 +32,7 @@ app.mathScreen = function () {
 		
 		lblString.html(var0);
 		txtString.attr('placeholder', var0);
+		txtString.removeAttr('value');
 		
 		if(typeof var0 === "undefined")
 		{			
