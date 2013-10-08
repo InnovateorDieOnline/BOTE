@@ -1,21 +1,10 @@
 @charset "UTF-8";
 
-@font-face {
-	font-family: 'Irish Grover';
-	font-style: normal;
-	font-weight: normal;
-	src: url('../assets/fonts/IrishGrover.woff') format('woff');
-}
 
-@font-face {
-	font-family: 'Philosopher';
-	font-style: normal;
-	font-weight: normal;
-	src: url('../assets/fonts/Philosopher.woff') format('woff');
-}
+
 
 #splashScreen {
-	background: transparent url('../assets/images/logo.png');
+	background: transparent url('../img/splashscreen.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: top-center;
