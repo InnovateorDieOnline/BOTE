@@ -5,10 +5,7 @@ app.unitsScreen = function () {
 	var pub = {};		
 
 	pub.onDOMReady = function () {		
-		console.log('in app.mathScreen.onDOMReady');
-		
-		var context = document.getElementById('contextMenu');
-		context.menu.show();
+		console.log('in app.mathScreen.onDOMReady');		
 		
 		pub.addEventListeners();		
 		

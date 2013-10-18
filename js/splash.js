@@ -11,6 +11,8 @@ app.splash = function () {
 	pub.onDOMReady = function () {
 		console.log('in app.splash.onDOMReady');
 		document.getElementById('activityIndicator').hide();
+		var context = document.getElementById('contextMenu');
+		//context.menu.show();
 		try {
 			blackberry.event.addEventListener('languagechanged', translateTitles);
 			translateTitles();
@@ -25,15 +27,19 @@ app.splash = function () {
 
 		$('#btnMath').on('click', function () {
 			bb.pushScreen('mathScreen.html', 'mathScreen');
+			console.log('the math button was pressed');
 		});
 
 		$('#btnEngineering').on('click', function () {
 			bb.pushScreen('engrScreen.html', 'engrScreen');
+			console.log('the engineering button was pressed');
 		});		
 
 		$('#btnUnits').on('click', function () {
 			bb.pushScreen('unitsScreen.html', 'unitsScreen');
-		});		
+			console.log('the units button was pressed');
+		});
+		
 
 
 		blackberry.event.addEventListener('swipedown', pub.onSwipedown);

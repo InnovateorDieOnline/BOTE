@@ -7,8 +7,8 @@ app.mathScreen = function () {
 	pub.onDOMReady = function () {
 		console.log('in app.mathScreen.onDOMReady');
 		
-		var context = document.getElementById('contextMenu');
-		context.menu.show();
+		// var context = document.getElementById('contextMenu');
+		// context.menu.show();
 		
 		pub.addEventListeners();
 		
@@ -18,7 +18,7 @@ app.mathScreen = function () {
 	pub.addEventListeners = function () {
 		console.log('in app.mathScreen.addEventListeners');
 		
-		var context = document.getElementById('contextMenu');
+		
 
 		$('#btnCalculate').bind('click', pub.calculate);
 		$('#btnEquationList').bind('click', pub.eqList);

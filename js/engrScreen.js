@@ -5,9 +5,7 @@ app.engrScreen = function () {
 	var pub = {};
 		
 	pub.onDOMReady = function () {
-		console.log('in app.engrScreen.onDOMReady');
-		var context = document.getElementById('contextMenu');
-		context.menu.show();
+		console.log('in app.engrScreen.onDOMReady');		
 		pub.addEventListeners();
 		hammerTime();	
 	};

@@ -11,7 +11,7 @@
 		<div data-bb-type="round-panel">
 
 		<div id="txtPanelHeader" data-bb-type="panel-header"></div>
-		<div id: "header" data-bb-type="label">Eq:</div>
+		<div id= "header" data-bb-type="label">Eq:</div>
 		<input id="txtEquation" type="text" placeholder = "ax^2+bx+c" title="quad" disabled></input>
 
 		<div data-bb-type="label-control-container">
@@ -44,21 +44,14 @@
 		<div id="btnCalculate"
 			data-bb-type="action"
 			data-bb-style="button"
-			data-bb-selected="true"
+			data-bb-overflow="false"
 			data-bb-img="img/calculate.png">
 			Calculate
 		</div>
-
-		<div id="btnEquationList"
-			data-bb-type="action"
-			data-bb-style="button"
-			data-bb-img="img/equations.png">
-			Equation List
-		</div>
-	</div>
-
-	<div id="contextMenu" data-bb-type="context-menu">
-		<div id="btnQuad" data-bb-type="action" data-bb-img="img/quadratic.png">Quadratic</div>
-		<div id="btnCubic" data-bb-type="action" data-bb-img="img/cubic.png">Cubic</div>		
+		
+	
+		<div id="btnQuad" data-bb-type="action"  data-bb-style="tab" data-bb-img="img/quadratic.png" data-bb-overflow="true">Quadratic</div>
+		
+		<div id="btnCubic" data-bb-type="action"  data-bb-style="tab" data-bb-img="img/cubic.png"data-bb-overflow="true">Cubic</div>		
 	</div>
 </div>

@@ -44,6 +44,8 @@
 	<!-- to listen for sensor events -->
 	<feature id="blackberry.sensors"/>
 	
+	<feature id="blackberry.ui.contextmenu" />
+	
 	<feature id="blackberry.message.sms" />
 	<feature id="blackberry.ui.menu" />
 	
